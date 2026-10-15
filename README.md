@@ -54,7 +54,7 @@ A browser-based simulation of an electronic voting machine. Users can enter a ca
 <!-- Replace the path below with the actual screenshot location. -->
 
 <p align="center">
-  <img src="screenshots/electronic-voting-machine.png" alt="Electronic Voting Machine interface" width="800" />
+  <img src="img/Urna.png" alt="Electronic Voting Machine interface" width="800" />
 </p>
 
 <p align="center">
@@ -119,7 +119,7 @@ An interactive image slideshow that allows users to navigate through a collectio
 <!-- Replace the path below with the actual screenshot location. -->
 
 <p align="center">
-  <img src="screenshots/image-slideshow.png" alt="Image Slideshow interface" width="800" />
+  <img src="img/SlideShow.png" alt="Image Slideshow interface" width="800" />
 </p>
 
 <p align="center">
@@ -171,7 +171,7 @@ A registration form designed to collect user information and demonstrate client-
 <!-- Replace the path below with the actual screenshot location. -->
 
 <p align="center">
-  <img src="screenshots/registration-form.png" alt="Registration Form interface" width="800" />
+  <img src="img/Formulario.png" alt="Registration Form interface" width="800" />
 </p>
 
 <p align="center">
@@ -256,13 +256,13 @@ No Node.js installation or package manager is required for the basic HTML, CSS, 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Taunt-byte/DESAFIO-3-Projetos-em-JavaScript.git
+   git clone https://github.com/Taunt-byte/Javascript-mini-projects.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd DESAFIO-3-Projetos-em-JavaScript
+   cd apps
    ```
 
 3. Open the repository in Visual Studio Code or your preferred editor.
@@ -283,6 +283,7 @@ DESAFIO-3-Projetos-em-JavaScript/
 │   └── Formulario.png
 │   └── SlideShow.png
 │   └── Urna.png
+│   └── Logo.png
 └── apps
 │   └──electronic-voting-machine/
 │     ├── index.html
