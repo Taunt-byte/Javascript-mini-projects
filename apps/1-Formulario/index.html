@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Crie sua conta para começar a organizar suas atividades e aumentar sua produtividade."
+    >
+
+    <title>Criar Conta | Productivity</title>
+
+    <!-- Estilos globais e específicos do formulário -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
+
+    <!-- JavaScript executado após o carregamento do HTML -->
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <main class="cadastro-container">
+
+        <!-- Área visual -->
+        <section class="banner" aria-label="Apresentação">
+            <img
+                src="img/financial_data.jpg"
+                alt=""
+                class="banner-imagem"
+            >
+
+            <div class="banner-conteudo">
+                <p class="banner-etiqueta">SUA JORNADA COMEÇA AQUI</p>
+
+                <h2>Faça mais.<br>Seja produtivo.</h2>
+
+                <p>
+                    Organize sua rotina, acompanhe seus objetivos
+                    e dê o próximo passo.
+                </p>
+            </div>
+        </section>
+
+        <!-- Área do formulário -->
+        <section class="form-area" aria-labelledby="form-titulo">
+
+            <div class="form-cabecalho">
+                <p class="form-etiqueta">CRIE SUA CONTA</p>
+
+                <h1 id="form-titulo">Comece agora</h1>
+
+                <p class="form-descricao">
+                    Preencha os campos abaixo para criar sua conta.
+                </p>
+            </div>
+
+            <form
+                id="form-cadastro"
+                class="formulario"
+                action="#"
+                method="post"
+                novalidate
+            >
+                <!-- Nome completo -->
+                <div class="form-grupo">
+                    <label for="nome">Nome completo</label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Ex.: João da Silva"
+                        autocomplete="name"
+                        minlength="2"
+                        maxlength="100"
+                        data-rules="required|min:2"
+                        aria-describedby="erro-nome"
+                        required
+                    >
+
+                    <small
+                        class="mensagem-erro"
+                        id="erro-nome"
+                        aria-live="polite"
+                    ></small>
+                </div>
+
+                <!-- E-mail -->
+                <div class="form-grupo">
+                    <label for="email">E-mail</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="voce@exemplo.com"
+                        autocomplete="email"
+                        maxlength="254"
+                        data-rules="required|email"
+                        aria-describedby="erro-email"
+                        required
+                    >
+
+                    <small
+                        class="mensagem-erro"
+                        id="erro-email"
+                        aria-live="polite"
+                    ></small>
+                </div>
+
+                <!-- Senha -->
+                <div class="form-grupo">
+                    <label for="senha">Senha</label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Mínimo de 8 caracteres"
+                        autocomplete="new-password"
+                        minlength="8"
+                        data-rules="required|min:8"
+                        aria-describedby="erro-senha"
+                        required
+                    >
+
+                    <small
+                        class="mensagem-erro"
+                        id="erro-senha"
+                        aria-live="polite"
+                    ></small>
+                </div>
+
+                <!-- Confirmação da senha -->
+                <div class="form-grupo">
+                    <label for="senha-confirmacao">
+                        Confirme sua senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha-confirmacao"
+                        name="senha_confirmacao"
+                        placeholder="Digite sua senha novamente"
+                        autocomplete="new-password"
+                        data-rules="required|confirmed"
+                        aria-describedby="erro-senha-confirmacao"
+                        required
+                    >
+
+                    <small
+                        class="mensagem-erro"
+                        id="erro-senha-confirmacao"
+                        aria-live="polite"
+                    ></small>
+                </div>
+
+                <!-- Mensagem geral -->
+                <p
+                    id="mensagem-formulario"
+                    class="mensagem-formulario"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <button type="submit" class="botao-cadastro">
+                    Criar minha conta
+                </button>
+
+                <p class="form-login">
+                    Já possui uma conta?
+                    <a href="#" id="link-login">Faça login</a>
+                </p>
+
+                <p class="form-rodape">
+                    Ao continuar, você estará criando uma conta
+                    de demonstração neste projeto.
+                </p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

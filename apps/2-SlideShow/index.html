@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Explore a collection of stunning landscapes in this interactive slideshow."
+    >
+
+    <meta name="theme-color" content="#0b1020">
+
+    <title>Beyond | Interactive Slideshow</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Utilities load before the main script -->
+    <script src="js/util.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="logo" href="#" aria-label="Beyond home">
+            BEYOND<span>.</span>
+        </a>
+
+        <p class="header-caption">A VISUAL JOURNEY</p>
+
+        <a class="header-link" href="#about">
+            Discover <span aria-hidden="true">↘</span>
+        </a>
+    </header>
+
+    <main>
+        <section
+            class="slider"
+            aria-label="Featured landscapes"
+            aria-roledescription="carousel"
+        >
+            <!-- Slides are created dynamically with JavaScript -->
+            <div class="painel" id="slides">
+                <p class="loading-message">Loading experience...</p>
+            </div>
+
+            <!-- Contrast overlay -->
+            <div class="slider-overlay" aria-hidden="true"></div>
+
+            <!-- Slide information -->
+            <div class="slider-content">
+                <p class="eyebrow" id="slide-category">
+                    DISCOVER THE WORLD
+                </p>
+
+                <h1 id="slide-title">Beyond the Horizon</h1>
+
+                <p class="slide-description" id="slide-description">
+                    Every landscape tells a different story.
+                </p>
+
+                <div class="slide-footer">
+                    <p
+                        class="slide-counter"
+                        id="slide-counter"
+                        aria-label="Slide number"
+                    >
+                        <span id="current-slide">01</span>
+                        <span class="counter-divider">/</span>
+                        <span id="total-slides">04</span>
+                    </p>
+
+                    <div
+                        class="slide-indicators"
+                        id="slide-indicators"
+                        aria-label="Choose a slide"
+                    ></div>
+                </div>
+            </div>
+
+            <!-- Navigation controls -->
+            <div class="controles" aria-label="Slideshow controls">
+                <button
+                    class="controle"
+                    id="previous-slide"
+                    type="button"
+                    aria-label="Previous slide"
+                    title="Previous slide"
+                >
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <button
+                    class="controle pause"
+                    id="toggle-playback"
+                    type="button"
+                    aria-label="Pause slideshow"
+                    title="Pause slideshow"
+                >
+                    <span id="playback-icon" aria-hidden="true">Ⅱ</span>
+                </button>
+
+                <button
+                    class="controle"
+                    id="next-slide"
+                    type="button"
+                    aria-label="Next slide"
+                    title="Next slide"
+                >
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+
+            <!-- Announcements are made only after user navigation -->
+            <p
+                class="sr-only"
+                id="slide-announcement"
+                aria-live="polite"
+                aria-atomic="true"
+            ></p>
+        </section>
+
+        <section class="about" id="about">
+            <div>
+                <p class="eyebrow">A WORLD OF POSSIBILITIES</p>
+                <h2>There is always more to explore.</h2>
+            </div>
+
+            <p class="about-description">
+                From quiet mountains to endless coastlines, discover
+                the beauty of places that inspire us to go further.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>BEYOND. — A VISUAL JOURNEY</p>
+        <p>Designed to inspire.</p>
+    </footer>
+</body>
+</html>

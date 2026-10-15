@@ -1,0 +1,737 @@
+
+/* =========================================
+   1. Configurações globais
+========================================= */
+
+:root {
+    --fundo: #eef1f5;
+    --superficie: #ffffff;
+    --texto: #202938;
+    --texto-suave: #667085;
+
+    --urna: #d8dde5;
+    --urna-borda: #b8c0cc;
+    --tela: #f8f8f1;
+    --tela-texto: #222c32;
+
+    --tecla: #252a32;
+    --tecla-hover: #3c4552;
+
+    --verde: #279653;
+    --verde-hover: #1d7941;
+
+    --vermelho: #d64545;
+    --amarelo: #f4c542;
+
+    --borda: #dfe4ec;
+    --raio: 14px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--fundo);
+    color: var(--texto);
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    line-height: 1.6;
+}
+
+button {
+    font: inherit;
+}
+
+button:focus-visible {
+    outline: 3px solid #3268d8;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   2. Cabeçalho
+========================================= */
+
+.app-navbar {
+    background: #202938;
+    box-shadow: 0 3px 14px rgb(22 31 45 / 12%);
+}
+
+.app-navbar .navbar-brand {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.app-navbar .badge {
+    padding: 8px 10px;
+    font-size: 0.65rem;
+    letter-spacing: 0.07em;
+}
+
+/* =========================================
+   3. Introdução
+========================================= */
+
+.app-container {
+    flex: 1;
+    padding-top: 42px;
+    padding-bottom: 56px;
+}
+
+.page-heading {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+
+    color: #3c6dcb;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+
+.page-heading h1 {
+    margin-bottom: 12px;
+
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 850;
+    letter-spacing: -0.05em;
+}
+
+.page-heading > p:last-child {
+    color: var(--texto-suave);
+}
+
+/* =========================================
+   4. Estrutura da urna
+========================================= */
+
+.urna {
+    width: min(100%, 1000px);
+    margin: 0 auto;
+
+    padding: 26px;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: stretch;
+    gap: 28px;
+
+    background: var(--urna);
+    border: 1px solid var(--urna-borda);
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgb(32 41 56 / 12%),
+        inset 0 1px 0 rgb(255 255 255 / 80%);
+}
+
+/* =========================================
+   5. Tela
+========================================= */
+
+.tela-wrapper {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.tela {
+    flex: 1;
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--tela);
+    color: var(--tela-texto);
+
+    border: 8px solid #aeb6c2;
+    border-radius: 5px;
+
+    box-shadow:
+        inset 0 0 0 1px #ffffff,
+        0 4px 10px rgb(0 0 0 / 10%);
+}
+
+.tela-topo {
+    min-height: 42px;
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    background: #e6e9e3;
+    border-bottom: 1px solid #d4d8d1;
+
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+}
+
+.led {
+    width: 9px;
+    height: 9px;
+
+    background: #24934b;
+    border-radius: 50%;
+
+    box-shadow: 0 0 8px rgb(36 147 75 / 30%);
+}
+
+.tela-conteudo {
+    flex: 1;
+    padding: 24px 22px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.texto-instrucao {
+    margin-bottom: 4px;
+
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.tela-conteudo > h2 {
+    margin-bottom: 22px;
+
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+}
+
+.numero-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.numero-area > span {
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.numero-digitos {
+    display: flex;
+    gap: 8px;
+}
+
+.digito {
+    width: 43px;
+    height: 54px;
+
+    display: grid;
+    place-items: center;
+
+    background: #ffffff;
+    border: 1px solid #aab1a7;
+
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.digito.vazio {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 25%,
+            #f0f1eb 25%,
+            #f0f1eb 50%,
+            #ffffff 50%,
+            #ffffff 75%,
+            #f0f1eb 75%
+        );
+
+    background-size: 8px 8px;
+}
+
+.candidato-info {
+    margin-top: 24px;
+    padding-top: 18px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    border-top: 1px solid #d7dacf;
+}
+
+.candidato-info[hidden],
+.voto-especial[hidden] {
+    display: none;
+}
+
+.candidato-foto {
+    width: 100px;
+    min-width: 100px;
+    height: 120px;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+
+    background: #e1e4dc;
+    border: 1px solid #c5c9bf;
+    border-radius: 3px;
+
+    font-size: 2rem;
+}
+
+.candidato-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.candidato-dados {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.campo-legenda {
+    margin-bottom: 2px;
+
+    color: #5d675d;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.candidato-dados h3 {
+    margin-bottom: 12px;
+
+    font-size: 1rem;
+    font-weight: 850;
+}
+
+#candidato-partido {
+    font-size: 0.9rem;
+    font-weight: 650;
+}
+
+.mensagem-voto {
+    margin-top: auto;
+    padding-top: 24px;
+
+    font-size: 0.78rem;
+    font-weight: 650;
+}
+
+.voto-especial {
+    margin-top: 30px;
+    padding: 20px 12px;
+
+    text-align: center;
+
+    border: 2px dashed #8a9386;
+}
+
+.voto-especial > span {
+    color: var(--verde);
+    font-size: 2rem;
+}
+
+.voto-especial h3 {
+    margin-top: 8px;
+
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.aviso {
+    margin-top: 10px;
+
+    color: #4e5968;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+/* =========================================
+   6. Teclado numérico
+========================================= */
+
+.teclado-area {
+    min-width: 0;
+    padding: 20px;
+
+    background: #b9c1cc;
+    border: 1px solid #a7afbb;
+    border-radius: 8px;
+
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 65%);
+}
+
+.teclado-cabecalho {
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.teclado-cabecalho h2 {
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.teclado-cabecalho span {
+    color: #455063;
+    font-size: 0.7rem;
+}
+
+.teclado {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.tecla {
+    min-width: 0;
+    min-height: 62px;
+
+    display: grid;
+    place-items: center;
+
+    color: #ffffff;
+    background: var(--tecla);
+
+    border: 1px solid #151a21;
+    border-radius: 5px;
+
+    box-shadow:
+        0 4px 0 #11151b,
+        0 5px 6px rgb(0 0 0 / 12%);
+
+    font-size: 1.45rem;
+    font-weight: 750;
+
+    transition:
+        background 150ms ease,
+        transform 100ms ease,
+        box-shadow 100ms ease;
+}
+
+.tecla:hover {
+    background: var(--tecla-hover);
+}
+
+.tecla:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #11151b;
+}
+
+.teclas-especiais {
+    margin-top: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.tecla-especial {
+    min-height: 52px;
+    padding: 10px 8px;
+
+    border: 1px solid rgb(0 0 0 / 18%);
+    border-radius: 4px;
+
+    font-size: 0.73rem;
+    font-weight: 900;
+
+    box-shadow: 0 3px 0 rgb(0 0 0 / 20%);
+
+    transition:
+        filter 150ms ease,
+        transform 100ms ease;
+}
+
+.tecla-especial:hover {
+    filter: brightness(0.95);
+}
+
+.tecla-especial:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+.branco {
+    color: #202938;
+    background: #ffffff;
+    border-color: #c3cad4;
+}
+
+.corrige {
+    color: #ffffff;
+    background: var(--vermelho);
+}
+
+.confirma {
+    grid-column: 1 / -1;
+
+    min-height: 64px;
+
+    color: #ffffff;
+    background: var(--verde);
+}
+
+.confirma:hover {
+    background: var(--verde-hover);
+}
+
+.dica-teclado {
+    margin-top: 18px;
+    margin-bottom: 0;
+
+    color: #465064;
+    font-size: 0.72rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   7. Apuração
+========================================= */
+
+.apuracao {
+    width: min(100%, 1000px);
+    margin: 52px auto 0;
+}
+
+.apuracao-cabecalho {
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.apuracao-cabecalho h2 {
+    font-size: 1.55rem;
+    font-weight: 850;
+    letter-spacing: -0.04em;
+}
+
+.botao-reset {
+    padding: 10px 14px;
+
+    color: #334155;
+    background: #ffffff;
+
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+
+    font-size: 0.8rem;
+    font-weight: 750;
+}
+
+.botao-reset:hover {
+    background: #f5f7fa;
+}
+
+.resultados {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.resultado-card {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+}
+
+.resultado-card span {
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+}
+
+.resultado-card strong {
+    font-size: 2rem;
+    font-weight: 850;
+    letter-spacing: -0.04em;
+}
+
+.resultado-candidatos {
+    margin-top: 18px;
+    padding: 22px;
+
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+}
+
+.resultado-candidatos h3 {
+    margin-bottom: 14px;
+
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+#lista-resultados {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#lista-resultados li {
+    padding: 6px 0;
+    color: #465064;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   8. Footer
+========================================= */
+
+.app-footer {
+    padding: 24px;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    color: var(--texto-suave);
+    background: #ffffff;
+    border-top: 1px solid var(--borda);
+
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.app-footer p {
+    margin: 0;
+}
+
+/* =========================================
+   9. Responsividade
+========================================= */
+
+@media (max-width: 767px) {
+    .app-container {
+        padding-top: 30px;
+    }
+
+    .urna {
+        padding: 16px;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .tela {
+        min-height: 400px;
+    }
+
+    .teclado-area {
+        padding: 18px;
+    }
+
+    .tecla {
+        min-height: 58px;
+    }
+
+    .resultados {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .apuracao-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 420px) {
+    .app-navbar .badge {
+        max-width: 112px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .urna {
+        padding: 10px;
+    }
+
+    .tela-conteudo {
+        padding: 20px 14px;
+    }
+
+    .candidato-info {
+        gap: 10px;
+    }
+
+    .candidato-foto {
+        width: 76px;
+        min-width: 76px;
+        height: 100px;
+    }
+
+    .teclado-area {
+        padding: 12px;
+    }
+
+    .teclado {
+        gap: 8px;
+    }
+
+    .tecla {
+        min-height: 54px;
+    }
+
+    .teclas-especiais {
+        gap: 8px;
+    }
+
+    .resultado-card {
+        padding: 15px;
+    }
+
+    .resultado-card strong {
+        font-size: 1.65rem;
+    }
+}
+
+/* =========================================
+   10. Movimento reduzido
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

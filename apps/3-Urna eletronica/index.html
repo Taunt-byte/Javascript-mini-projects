@@ -1,0 +1,250 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Simulador educacional de urna eletrônica desenvolvido com JavaScript."
+    >
+
+    <title>Urna Eletrônica | Simulador JS</title>
+
+    <!-- Bootstrap para utilitários e layout -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        crossorigin="anonymous"
+    >
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <!-- JavaScript da aplicação -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar navbar-dark app-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <img
+                    src="img/icon/urna.png"
+                    alt=""
+                    width="36"
+                    height="36"
+                    onerror="this.hidden=true"
+                >
+
+                <span>Urna Eletrônica</span>
+            </a>
+
+            <span class="badge text-bg-warning">
+                MODO DEMONSTRAÇÃO
+            </span>
+        </div>
+    </header>
+
+    <main class="container app-container">
+        <section class="page-heading">
+            <p class="eyebrow">PROJETO JAVASCRIPT</p>
+            <h1>Simulador de votação</h1>
+
+            <p>
+                Digite o número do candidato, confira os dados
+                e confirme seu voto.
+            </p>
+        </section>
+
+        <section class="urna" aria-label="Simulador de urna eletrônica">
+
+            <!-- Tela de votação -->
+            <div class="tela-wrapper">
+                <div class="tela" id="tela">
+
+                    <div class="tela-topo">
+                        <span class="led" aria-hidden="true"></span>
+                        <span>JUSTIÇA ELEITORAL</span>
+                    </div>
+
+                    <div class="tela-conteudo" id="tela-conteudo">
+                        <p class="texto-instrucao">
+                            SEU VOTO PARA
+                        </p>
+
+                        <h2 id="cargo">PRESIDENTE</h2>
+
+                        <div class="numero-area">
+                            <span>NÚMERO:</span>
+
+                            <div
+                                class="numero-digitos"
+                                id="numero-digitos"
+                                aria-label="Número do candidato"
+                            >
+                                <span class="digito vazio"></span>
+                                <span class="digito vazio"></span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="candidato-info"
+                            id="candidato-info"
+                            hidden
+                        >
+                            <div class="candidato-foto" id="candidato-foto">
+                                <span aria-hidden="true">👤</span>
+                            </div>
+
+                            <div class="candidato-dados">
+                                <p class="campo-legenda">NOME</p>
+                                <h3 id="candidato-nome"></h3>
+
+                                <p class="campo-legenda">PARTIDO</p>
+                                <p id="candidato-partido"></p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="voto-especial"
+                            id="voto-especial"
+                            hidden
+                        >
+                            <span aria-hidden="true">✓</span>
+                            <h3>VOTO EM BRANCO</h3>
+                        </div>
+
+                        <div
+                            class="mensagem-voto"
+                            id="mensagem-voto"
+                            role="status"
+                            aria-live="polite"
+                        >
+                            Digite o número do candidato.
+                        </div>
+                    </div>
+
+                    <div class="tela-rodape">
+                        SIMULADOR EDUCACIONAL
+                    </div>
+                </div>
+
+                <p class="aviso">
+                    Esta aplicação é apenas uma simulação.
+                </p>
+            </div>
+
+            <!-- Teclado -->
+            <div class="teclado-area">
+                <div class="teclado-cabecalho">
+                    <h2>TECLADO</h2>
+                    <span>Digite seu voto</span>
+                </div>
+
+                <div class="teclado" aria-label="Teclado numérico">
+                    <button type="button" class="tecla numero" data-numero="1">1</button>
+                    <button type="button" class="tecla numero" data-numero="2">2</button>
+                    <button type="button" class="tecla numero" data-numero="3">3</button>
+
+                    <button type="button" class="tecla numero" data-numero="4">4</button>
+                    <button type="button" class="tecla numero" data-numero="5">5</button>
+                    <button type="button" class="tecla numero" data-numero="6">6</button>
+
+                    <button type="button" class="tecla numero" data-numero="7">7</button>
+                    <button type="button" class="tecla numero" data-numero="8">8</button>
+                    <button type="button" class="tecla numero" data-numero="9">9</button>
+
+                    <span class="tecla-vazia" aria-hidden="true"></span>
+                    <button type="button" class="tecla numero" data-numero="0">0</button>
+                    <span class="tecla-vazia" aria-hidden="true"></span>
+                </div>
+
+                <div class="teclas-especiais">
+                    <button
+                        type="button"
+                        class="tecla-especial branco"
+                        id="botao-branco"
+                    >
+                        BRANCO
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tecla-especial corrige"
+                        id="botao-corrige"
+                    >
+                        CORRIGE
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tecla-especial confirma"
+                        id="botao-confirma"
+                    >
+                        CONFIRMA
+                    </button>
+                </div>
+
+                <p class="dica-teclado">
+                    Você também pode usar os números do teclado físico.
+                    Enter confirma e Backspace corrige.
+                </p>
+            </div>
+        </section>
+
+        <!-- Apuração de demonstração -->
+        <section class="apuracao" aria-labelledby="titulo-apuracao">
+            <div class="apuracao-cabecalho">
+                <div>
+                    <p class="eyebrow">RESULTADOS LOCAIS</p>
+                    <h2 id="titulo-apuracao">Apuração dos votos</h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="botao-reset"
+                    id="botao-reset"
+                >
+                    Reiniciar votação
+                </button>
+            </div>
+
+            <div class="resultados">
+                <article class="resultado-card">
+                    <span>Votos válidos</span>
+                    <strong id="total-validos">0</strong>
+                </article>
+
+                <article class="resultado-card">
+                    <span>Votos em branco</span>
+                    <strong id="total-brancos">0</strong>
+                </article>
+
+                <article class="resultado-card">
+                    <span>Votos nulos</span>
+                    <strong id="total-nulos">0</strong>
+                </article>
+
+                <article class="resultado-card">
+                    <span>Total confirmado</span>
+                    <strong id="total-votos">0</strong>
+                </article>
+            </div>
+
+            <div class="resultado-candidatos">
+                <h3>Votos por candidato</h3>
+                <ul id="lista-resultados">
+                    <li>Nenhum voto registrado.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>Projeto de estudo — HTML, CSS e JavaScript.</p>
+        <p>Não representa uma urna oficial.</p>
+    </footer>
+</body>
+</html>

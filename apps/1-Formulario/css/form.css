@@ -1,0 +1,350 @@
+
+/* =========================================
+   1. Banner de apresentação
+========================================= */
+
+.banner {
+    position: relative;
+    isolation: isolate;
+
+    min-height: 100%;
+    padding: 48px 38px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    background: #171d38;
+}
+
+.banner::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgb(11 16 32 / 5%) 0%,
+            rgb(11 16 32 / 35%) 35%,
+            rgb(11 16 32 / 96%) 100%
+        );
+}
+
+.banner-imagem {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0.68;
+}
+
+.banner-conteudo {
+    max-width: 400px;
+}
+
+.banner-etiqueta,
+.form-etiqueta {
+    margin-bottom: 14px;
+
+    color: var(--cor-destaque);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+}
+
+.banner-conteudo h2 {
+    margin-bottom: 18px;
+
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+}
+
+.banner-conteudo > p:last-child {
+    max-width: 340px;
+
+    color: #d2d9e9;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* =========================================
+   2. Área do formulário
+========================================= */
+
+.form-area {
+    min-width: 0;
+    padding: 48px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-cabecalho {
+    margin-bottom: 30px;
+}
+
+.form-cabecalho h1 {
+    margin-bottom: 10px;
+
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+}
+
+.form-descricao {
+    color: var(--cor-texto-secundario);
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   3. Campos e rótulos
+========================================= */
+
+.formulario {
+    width: 100%;
+}
+
+.form-grupo {
+    margin-bottom: 18px;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #e7ebf7;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-grupo input {
+    display: block;
+
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 15px;
+
+    color: var(--cor-texto);
+    background: #0d1425;
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+
+    outline: none;
+
+    transition:
+        border-color var(--transicao),
+        box-shadow var(--transicao),
+        background-color var(--transicao);
+}
+
+.form-grupo input::placeholder {
+    color: #7785a0;
+    opacity: 1;
+}
+
+.form-grupo input:hover {
+    border-color: #455574;
+}
+
+.form-grupo input:focus-visible {
+    border-color: var(--cor-primaria);
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgb(124 108 255 / 18%);
+}
+
+/* Estado de erro */
+
+.form-grupo input[aria-invalid="true"] {
+    border-color: var(--cor-erro);
+}
+
+.form-grupo input[aria-invalid="true"]:focus-visible {
+    box-shadow:
+        0 0 0 3px rgb(255 125 145 / 15%);
+}
+
+.mensagem-erro {
+    display: block;
+    min-height: 0;
+    margin-top: 0;
+
+    color: var(--cor-erro);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.mensagem-erro:not(:empty) {
+    margin-top: 6px;
+}
+
+/* =========================================
+   4. Mensagem geral do formulário
+========================================= */
+
+.mensagem-formulario {
+    margin-bottom: 14px;
+
+    color: var(--cor-texto-secundario);
+    font-size: 0.875rem;
+}
+
+.mensagem-formulario:empty {
+    display: none;
+}
+
+.mensagem-formulario[data-tipo="sucesso"] {
+    padding: 12px 14px;
+
+    color: var(--cor-sucesso);
+    background: rgb(98 230 165 / 8%);
+
+    border: 1px solid rgb(98 230 165 / 25%);
+    border-radius: var(--raio-pequeno);
+}
+
+.mensagem-formulario[data-tipo="erro"] {
+    color: var(--cor-erro);
+}
+
+/* =========================================
+   5. Botão principal
+========================================= */
+
+.botao-cadastro {
+    width: 100%;
+    min-height: 52px;
+    padding: 13px 20px;
+
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #7c6cff,
+        #6552e8
+    );
+
+    border: 0;
+    border-radius: var(--raio-pequeno);
+
+    font-size: 0.95rem;
+    font-weight: 750;
+
+    box-shadow: 0 8px 22px rgb(101 82 232 / 20%);
+
+    transition:
+        transform var(--transicao),
+        filter var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.botao-cadastro:hover {
+    filter: brightness(1.12);
+
+    box-shadow: 0 10px 26px rgb(101 82 232 / 32%);
+    transform: translateY(-1px);
+}
+
+.botao-cadastro:active {
+    transform: translateY(0);
+}
+
+.botao-cadastro:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    box-shadow: none;
+    transform: none;
+}
+
+/* =========================================
+   6. Login e rodapé
+========================================= */
+
+.form-login {
+    margin-top: 24px;
+
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.form-login a {
+    margin-left: 4px;
+    font-weight: 700;
+}
+
+.form-rodape {
+    margin-top: 22px;
+
+    color: var(--cor-texto-secundario);
+    font-size: 0.75rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* =========================================
+   7. Ajustes para telas menores
+========================================= */
+
+@media (max-width: 850px) {
+    .banner {
+        min-height: 260px;
+        padding: 34px;
+    }
+
+    .banner-conteudo h2 {
+        font-size: 2.5rem;
+    }
+
+    .form-area {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        min-height: 210px;
+        padding: 26px 24px;
+    }
+
+    .banner-conteudo h2 {
+        margin-bottom: 10px;
+        font-size: 2rem;
+    }
+
+    .banner-etiqueta {
+        margin-bottom: 8px;
+        font-size: 0.68rem;
+    }
+
+    .banner-conteudo > p:last-child {
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+
+    .form-area {
+        padding: 32px 24px;
+    }
+
+    .form-cabecalho {
+        margin-bottom: 24px;
+    }
+}

@@ -1,0 +1,174 @@
+
+/* =========================================
+   1. Variáveis e configurações globais
+========================================= */
+
+:root {
+    color-scheme: dark;
+
+    --cor-fundo: #0b1020;
+    --cor-superficie: #121a2d;
+    --cor-texto: #f4f7ff;
+    --cor-texto-secundario: #9aa8c2;
+
+    --cor-primaria: #7c6cff;
+    --cor-primaria-hover: #9589ff;
+    --cor-destaque: #54d6c5;
+
+    --cor-borda: #293550;
+    --cor-erro: #ff7d91;
+    --cor-sucesso: #62e6a5;
+
+    --sombra-cartao: 0 24px 80px rgb(0 0 0 / 35%);
+
+    --raio-pequeno: 8px;
+    --raio-medio: 14px;
+    --raio-grande: 22px;
+
+    --transicao: 180ms ease;
+}
+
+/* Evita diferenças de cálculo entre elementos */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-width: 320px;
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 32px;
+
+    display: grid;
+    place-items: center;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: var(--cor-texto);
+
+    background:
+        radial-gradient(
+            ellipse at 15% 10%,
+            rgb(124 108 255 / 13%),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 90% 90%,
+            rgb(84 214 197 / 8%),
+            transparent 38%
+        ),
+        var(--cor-fundo);
+}
+
+/* Herda a tipografia dos elementos do formulário */
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: var(--cor-primaria-hover);
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    color: var(--cor-destaque);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 4px;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Layout principal */
+
+.cadastro-container {
+    width: min(100%, 1100px);
+    min-height: 650px;
+
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+
+    overflow: hidden;
+
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-grande);
+
+    box-shadow: var(--sombra-cartao);
+}
+
+/* Tablet */
+
+@media (max-width: 850px) {
+    body {
+        padding: 24px;
+    }
+
+    .cadastro-container {
+        width: min(100%, 650px);
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Celular */
+
+@media (max-width: 480px) {
+    body {
+        display: block;
+        padding: 0;
+    }
+
+    .cadastro-container {
+        width: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+/* Respeita a preferência por menos movimento */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
