@@ -57,9 +57,6 @@ A browser-based simulation of an electronic voting machine. Users can enter a ca
   <img src="img/Urna.png" alt="Electronic Voting Machine interface" width="800" />
 </p>
 
-<p align="center">
-  <em>Screenshot placeholder — add your own project screenshot.</em>
-</p>
 
 **Features**
 
@@ -122,9 +119,6 @@ An interactive image slideshow that allows users to navigate through a collectio
   <img src="img/SlideShow.png" alt="Image Slideshow interface" width="800" />
 </p>
 
-<p align="center">
-  <em>Screenshot placeholder — add your own project screenshot.</em>
-</p>
 
 **Features**
 
@@ -174,9 +168,7 @@ A registration form designed to collect user information and demonstrate client-
   <img src="img/Formulario.png" alt="Registration Form interface" width="800" />
 </p>
 
-<p align="center">
-  <em>Screenshot placeholder — add your own project screenshot.</em>
-</p>
+
 
 **Features**
 
